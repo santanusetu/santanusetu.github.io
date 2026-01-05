@@ -12,9 +12,9 @@ He graduated from **San Jose State University** with a Master's degree specializ
 
 ## Portfolio Screenshots
 
-<img src="img/image3.png" alt="Portfolio Screenshot 1" width="200" />&nbsp;&nbsp;
-<img src="img/image1.png" alt="Portfolio Screenshot 2" width="200" />&nbsp;&nbsp;
-<img src="img/image2.png" alt="Portfolio Screenshot 3" width="200" />
+<img src="img/screenshots/image3.webp" alt="Portfolio Screenshot 1" width="200" />&nbsp;&nbsp;
+<img src="img/screenshots/image1.webp" alt="Portfolio Screenshot 2" width="200" />&nbsp;&nbsp;
+<img src="img/screenshots/image2.webp" alt="Portfolio Screenshot 3" width="200" />
 
 ## Featured Projects
 

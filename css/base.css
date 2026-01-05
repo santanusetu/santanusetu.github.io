@@ -1,10 +1,11 @@
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333
 }
 
 .text-muted {
-    color: #777
+    color: #444
 }
 
 .text-primary {
@@ -24,18 +25,25 @@ a, a:hover, a:focus, a:active, a.active {
     outline: 0
 }
 
+a:focus {
+    outline: 2px solid #fed136;
+    outline-offset: 2px;
+    border-radius: 2px
+}
+
 a {
-    color: #fed136
+    color: #d4a017
 }
 
 a:hover, a:focus, a:active, a.active {
-    color: #fec503
+    color: #b8870e
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
-    font-weight: 700
+    font-weight: 700;
+    color: #222
 }
 
 .img-centered {
@@ -43,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-light-gray {
-    background-color: #fffff5
+    background-color: #f8f9fa
 }
 
 .bg-darkest-gray {
@@ -198,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-    background-image: url(../img/background.jpg);
+    background-image: url(../img/backgrounds/background.webp);
     background-repeat: none;
     background-attachment: scroll;
     background-position: center center;
@@ -263,7 +271,8 @@ section {
 section h2.section-heading {
     font-size: 40px;
     margin-top: 0;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    color: #222
 }
 
 section h3.section-subheading {
@@ -272,7 +281,8 @@ section h3.section-subheading {
     text-transform: none;
     font-style: italic;
     font-weight: 400;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    color: #555
 }
 
 @media (min-width: 768px) {
@@ -462,7 +472,7 @@ section h3.section-subheading {
 
 .timeline .timeline-heading h4 {
     margin-top: 0;
-    color: inherit
+    color: #222
 }
 
 .timeline .timeline-heading h4.subheading {
@@ -470,7 +480,8 @@ section h3.section-subheading {
 }
 
 .timeline .timeline-body > p, .timeline .timeline-body > ul {
-    margin-bottom: 0
+    margin-bottom: 0;
+    color: #444
 }
 
 @media (min-width: 768px) {
@@ -572,6 +583,12 @@ section h3.section-subheading {
     height: 180px;
 }
 
+.edu-details h3,
+.edu-details h4,
+.edu-details h5 {
+    color: #222
+}
+
 .edu-details h4 {
     margin-top: 25px;
     margin-bottom: 0;
@@ -579,7 +596,8 @@ section h3.section-subheading {
 }
 
 .edu-details p {
-    margin-top: 30px
+    margin-top: 30px;
+    color: #444
 }
 
 aside.clients img {
@@ -588,12 +606,28 @@ aside.clients img {
 
 section#contact {
     background-color: #222;
-    background-image: url(../img/map-image.png);
+    background-image: url(../img/backgrounds/map-image.webp);
     background-position: center;
     background-repeat: no-repeat
 }
 
 section#contact .section-heading {
+    color: #fff
+}
+
+section#contact .section-subheading {
+    color: #fff !important
+}
+
+section#contact .text-muted {
+    color: #ddd
+}
+
+section#contact a {
+    color: #fed136
+}
+
+section#contact a:hover {
     color: #fff
 }
 
@@ -613,37 +647,44 @@ section#contact .form-group textarea.form-control {
     height: 236px
 }
 
+section#contact .form-control {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #222;
+    border: 2px solid rgba(255, 255, 255, 0.3)
+}
+
 section#contact .form-control:focus {
     border-color: #fed136;
-    box-shadow: none
+    box-shadow: 0 0 0 0.2rem rgba(254, 209, 54, 0.25);
+    background-color: #fff
 }
 
 section#contact ::-webkit-input-placeholder {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    color: #bbb
+    color: #999
 }
 
 section#contact :-moz-placeholder {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    color: #bbb
+    color: #999
 }
 
 section#contact ::-moz-placeholder {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    color: #bbb
+    color: #999
 }
 
 section#contact :-ms-input-placeholder {
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
-    color: #bbb
+    color: #999
 }
 
 section#contact .text-danger {
@@ -659,7 +700,8 @@ footer span.copyright {
     line-height: 40px;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
-    text-transform: none
+    text-transform: none;
+    color: #555
 }
 
 footer ul.quicklinks {
@@ -792,7 +834,7 @@ img::-moz-selection {
 }
 
 body {
-    webkit-tap-highlight-color: #fed136
+    -webkit-tap-highlight-color: #fed136
 }
 
 .portfolio-item img {

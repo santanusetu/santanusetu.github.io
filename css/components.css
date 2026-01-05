@@ -26,7 +26,7 @@
 .btn.btn-default:hover, .btn.btn-default:active {
     background: #fff;
     border-color: #fff;
-    color: #fff;
+    color: #222;
 }
 
 .btn-info {
@@ -122,11 +122,12 @@
    Utility Classes
    ========================================================================== */
 .spacer {
-    background: #3498db;
+    background: #fed136;
     width: 200px;
-    height: 2px;
+    height: 3px;
     margin: auto;
     margin-bottom: 40px;
+    border-radius: 2px;
 }
 
 .network-name {
@@ -213,6 +214,7 @@ section {
     margin-bottom: 20px;
     font-size: 20px;
     transition: color 0.3s ease;
+    color: #222;
 }
 
 #aboutMe .fa-stack {
@@ -242,6 +244,7 @@ section {
 #aboutMe .text-muted {
     font-size: 15px;
     line-height: 1.8;
+    color: #444;
 }
 
 #aboutMe strong {
@@ -250,7 +253,7 @@ section {
 }
 
 #aboutMe em {
-    color: #666;
+    color: #555;
     font-style: italic;
     font-size: 14px;
 }
@@ -265,6 +268,7 @@ section {
 #portfolio .section-subheading {
     font-size: 18px;
     margin-bottom: 60px;
+    color: #555;
 }
 
 #portfolio .row {
@@ -342,7 +346,7 @@ section {
 #portfolio .portfolio-caption h4 {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #333;
+    color: #222;
     transition: color 0.3s ease;
     min-height: 50px;
     text-transform: none;
@@ -358,8 +362,9 @@ section {
     margin-bottom: 15px;
     flex-grow: 1;
     min-height: 80px;
-    font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
+    color: #444;
 }
 
 .project-tech {
@@ -376,7 +381,7 @@ section {
     display: inline-block;
     padding: 4px 12px;
     background-color: #f8f9fa;
-    color: #333;
+    color: #222;
     border: 1px solid #e0e0e0;
     border-radius: 15px;
     font-size: 11px;
@@ -413,9 +418,16 @@ section {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.form-control {
+    color: #222;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
 .form-control:focus {
     border-color: #fed136;
     box-shadow: 0 0 0 0.2rem rgba(254, 209, 54, 0.25);
+    outline: none;
 }
 
 .form-control:invalid:not(:focus):not(:placeholder-shown) {
