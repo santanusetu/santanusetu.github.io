@@ -1,3 +1,6 @@
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
 .btn.btn-default {
     margin: 40px auto 0;
     background: transparent;
@@ -19,26 +22,39 @@
     -o-transition: all 0.1s ease-in-out;
     transition: all 0.1s ease-in-out;
 }
+
 .btn.btn-default:hover, .btn.btn-default:active {
     background: #fff;
     border-color: #fff;
     color: #fff;
 }
 
-/* ==========================================================================
-   Social icons
-   ========================================================================== */
+.btn-info {
+    transition: all 0.3s ease;
+}
 
+.btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(254, 209, 54, 0.3);
+    color: #fed136;
+}
+
+/* ==========================================================================
+   Social Icons
+   ========================================================================== */
 .social-icons .btn {
     margin-right: 15px;
 }
+
 .social-icons {
     padding-top: 10px;
     margin-bottom: 35px;
 }
+
 .social-icons .btn.btn-clear {
     border: 1px solid #fff;
 }
+
 .btn-round {
     border-radius: 50%;
     width: 50px;
@@ -46,11 +62,13 @@
     display: inline-block;
     padding: 0;
 }
+
 .btn-round i {
     font-size: 20px;
     top: 15px;
     position: relative;
 }
+
 .btn.btn-clear {
     border: 1px solid #fff;
     color: #fff;
@@ -65,44 +83,50 @@
     -o-transition-property: -o-transform;
     transition-property: transform;
 }
+
 .btn.btn-clear:hover, .btn.btn-clear.selected {
     background: #fed136;
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
+    transform: scale(1.1) rotate(360deg);
+    border-color: #fed136;
 }
+
 .btn-twitter:hover {
     color: #2BA9E0;
 }
+
 .btn-facebook:hover {
     color: #204385;
 }
+
 .btn-github:hover {
     color: #D92C85;
 }
+
 .btn-instagram:hover {
     color: #BAB1A8;
 }
+
 .btn-linkedin:hover {
     color: #015786;
 }
+
 .btn-pinterest:hover {
     color: #CA2128;
 }
+
 .btn-google:hover {
     color: #D3492C;
 }
 
-.btn-info:hover {
-    color: #fed136;
-}
-
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
 .spacer {
     background: #3498db;
     width: 200px;
     height: 2px;
     margin: auto;
-    margin-bottom: 40px
+    margin-bottom: 40px;
 }
 
 .network-name {
@@ -110,4 +134,311 @@
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 2px;
+}
+
+/* ==========================================================================
+   Global Enhancements
+   ========================================================================== */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a, button, .btn {
+    transition: all 0.3s ease;
+}
+
+a:focus, button:focus, .btn:focus {
+    outline: 2px solid #fed136;
+    outline-offset: 2px;
+}
+
+.intro-text {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+.navbar-default .navbar-nav > li > a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-default .navbar-nav > li > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #fed136;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-default .navbar-nav > li > a:hover::after,
+.navbar-default .navbar-nav > .active > a::after {
+    width: 80%;
+}
+
+/* ==========================================================================
+   About Me Section
+   ========================================================================== */
+#aboutMe {
+    padding: 100px 0;
+}
+
+#aboutMe .row.text-center {
+    margin-top: 40px;
+}
+
+#aboutMe .service-heading {
+    margin-bottom: 20px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+#aboutMe .fa-stack {
+    transition: transform 0.3s ease;
+    margin-bottom: 15px;
+}
+
+#aboutMe .fa-stack-2x.text-primary {
+    color: #fed136 !important;
+}
+
+#aboutMe .col-md-4 {
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+#aboutMe .col-md-4:hover {
+    background-color: rgba(254, 209, 54, 0.05);
+    transform: translateY(-5px);
+}
+
+#aboutMe .col-md-4:hover .fa-stack {
+    transform: scale(1.1) rotate(5deg);
+}
+
+#aboutMe .text-muted {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+#aboutMe strong {
+    color: #333;
+    font-weight: 600;
+}
+
+#aboutMe em {
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   Portfolio Section
+   ========================================================================== */
+#portfolio .section-heading {
+    margin-bottom: 15px;
+}
+
+#portfolio .section-subheading {
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+
+#portfolio .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+#portfolio .portfolio-item {
+    margin-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+#portfolio .portfolio-item:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    border-color: #fed136;
+}
+
+#portfolio .portfolio-link {
+    flex-shrink: 0;
+    height: 200px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    background-color: #f8f9fa;
+}
+
+#portfolio .portfolio-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+#portfolio .portfolio-item:hover .portfolio-link img {
+    transform: scale(1.1);
+}
+
+#portfolio .portfolio-hover {
+    background: rgba(254, 209, 54, 0.9) !important;
+    transition: all 0.3s ease;
+}
+
+#portfolio .portfolio-hover-content i {
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+#portfolio .portfolio-item:hover .portfolio-hover-content i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+#portfolio .portfolio-caption {
+    padding: 35px 25px;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    min-height: 280px;
+    border: none;
+    box-shadow: none;
+}
+
+#portfolio .portfolio-caption h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
+    min-height: 50px;
+    text-transform: none;
+}
+
+#portfolio .portfolio-item:hover .portfolio-caption h4 {
+    color: #fed136;
+}
+
+#portfolio .portfolio-caption p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    min-height: 80px;
+    font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+}
+
+.project-tech {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background-color: #fed136;
+    color: #fff;
+    border-color: #fed136;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(254, 209, 54, 0.3);
+}
+
+/* ==========================================================================
+   Timeline Section
+   ========================================================================== */
+.timeline-panel {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-panel:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+.form-control {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #fed136;
+    box-shadow: 0 0 0 0.2rem rgba(254, 209, 54, 0.25);
+}
+
+.form-control:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: #dc3545;
+}
+
+.form-control:valid:not(:focus):not(:placeholder-shown) {
+    border-color: #28a745;
+}
+
+.form-group.has-error .form-control {
+    border-color: #dc3545;
+}
+
+.form-group.has-success .form-control {
+    border-color: #28a745;
+}
+
+.form-group.has-error .help-block {
+    color: #dc3545;
+    display: block;
+}
+
+.form-group.has-success .help-block {
+    color: #28a745;
 }

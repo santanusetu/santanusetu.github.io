@@ -217,7 +217,7 @@ header .intro-text {
 
 header .intro-text .intro-lead-in {
     color: #fed136;
-    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive,
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
     font-style: italic;
     font-size: 22px;
     line-height: 22px;
