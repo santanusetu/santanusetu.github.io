@@ -10,12 +10,6 @@ Currently working at **Visa Inc.**, he brings professional experience from his t
 
 He graduated from **San Jose State University** with a Master's degree specializing in Distributed Systems in Software Engineering.
 
-## Portfolio Screenshots
-
-<img src="img/screenshots/image3.webp" alt="Portfolio Screenshot 1" width="200" />&nbsp;&nbsp;
-<img src="img/screenshots/image1.webp" alt="Portfolio Screenshot 2" width="200" />&nbsp;&nbsp;
-<img src="img/screenshots/image2.webp" alt="Portfolio Screenshot 3" width="200" />
-
 ## Featured Projects
 
 - **Amazon EC2 Instance Monitoring** - Dashboard to monitor CPU, memory, network, and disk statistics
