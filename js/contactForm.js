@@ -1,7 +1,7 @@
 /**
  * Contact Form Handler
- * Uses Formspree for static site form submission
- * Sign up at https://formspree.io and replace 'YOUR_FORM_ID' with your form endpoint
+ * Submits to Formspree over AJAX so the page never navigates away.
+ * Endpoint lives in CONFIG below; the dashboard is at https://formspree.io/forms
  */
 
 (function() {
@@ -9,7 +9,7 @@
 
     // Configuration
     const CONFIG = {
-        formspreeEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+        formspreeEndpoint: 'https://formspree.io/f/xqpzvqgp',
         directEmail: 'santanu.setu@gmail.com'
     };
 
@@ -114,6 +114,7 @@
                     _format: 'plain'
                 },
                 dataType: "json",
+                headers: { 'Accept': 'application/json' },
                 cache: false,
                 timeout: 10000, // 10 second timeout
                 success: function(response) {
@@ -131,6 +132,11 @@
                         errorMessage += 'Too many requests. Please try again later. ';
                     } else if (xhr.status === 0) {
                         errorMessage += 'Network error. Please check your connection. ';
+                    } else if (xhr.status === 422 && xhr.responseJSON && xhr.responseJSON.errors) {
+                        // Formspree returns field-level validation errors here
+                        errorMessage = xhr.responseJSON.errors
+                            .map(function(e) { return e.message; })
+                            .join(' ') + ' ';
                     }
                     
                     errorMessage += `Alternatively, you can contact me directly at <a href="mailto:${CONFIG.directEmail}">${CONFIG.directEmail}</a>.`;

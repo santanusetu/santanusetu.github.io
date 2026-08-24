@@ -620,6 +620,9 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
+                        <!-- Spam trap: bots fill this, humans never see it. Formspree drops the submission. -->
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true"
+                               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
                             <button type="submit" class="btn btn-xl">Send Message</button>
