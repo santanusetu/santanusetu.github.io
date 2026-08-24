@@ -180,13 +180,12 @@
                 </span>
                 <h4 class="service-heading">Tech Stack</h4>
                 <p class="text-muted text-justify" style="line-height: 2;">
-                    <span style="color: #fed136; font-weight: 600;">Backend:</span> Java, Python, Go, C++<br/>
-                    <span style="color: #fed136; font-weight: 600;">Frontend:</span> JavaScript, Angular, HTML5, CSS3, Bootstrap<br/>
-                    <span style="color: #fed136; font-weight: 600;">Databases:</span> MySQL, MongoDB, SQLite<br/>
-                    <span style="color: #fed136; font-weight: 600;">Mobile:</span> Android, iOS, RxJava, React Native<br/>
-                    <span style="color: #fed136; font-weight: 600;">Cloud & Infrastructure:</span> AWS, Docker, Kubernetes, VMware<br/>
-                    <span style="color: #fed136; font-weight: 600;">Testing:</span> Selenium, Appium, Espresso, JMeter<br/>
-                    <span style="color: #fed136; font-weight: 600;">DevOps:</span> Git, CI/CD, Puppet, Monitoring & Logging<br/>
+                    <span style="color: #fed136; font-weight: 600;">Backend &amp; Distributed Systems:</span> Java, Spring Boot, Microservices, REST APIs, Kafka, Redis, Python, Go<br/>
+                    <span style="color: #fed136; font-weight: 600;">AI, MCP &amp; Agentic Engineering:</span> Agentic AI, Model Context Protocol (MCP), RAG, LLM Applications, Tool Integration<br/>
+                    <span style="color: #fed136; font-weight: 600;">Frontend &amp; Full-Stack:</span> React, TypeScript, Redux, Micro-Frontends, Module Federation, Angular<br/>
+                    <span style="color: #fed136; font-weight: 600;">Data &amp; Cloud:</span> SQL, DB2, StarRocks, MongoDB, Docker, Kubernetes, AWS, Jenkins, CI/CD<br/>
+                    <span style="color: #fed136; font-weight: 600;">Observability:</span> Prometheus, Splunk, SLA/OLA Monitoring, HashiCorp Vault<br/>
+                    <span style="color: #fed136; font-weight: 600;">Security &amp; Testing:</span> SAST, DevSecOps, OWASP Top 10, JUnit, Selenium, Cypress, JMeter<br/>
                 </p>
             </div>
             <div class="col-md-4">
@@ -197,9 +196,9 @@
                 <h4 class="service-heading">Impact & Achievements</h4>
                 <p class="text-muted text-justify" style="line-height: 1.8;">
                     <strong style="color: #fed136;">🏆</strong> Architected risk-decisioning systems for an <strong>~$85M/year</strong> platform used by <strong>1,000+ issuing banks</strong><br/>
-                    <strong style="color: #fed136;">📱</strong> Published <strong>multiple Android apps</strong> on Google Play Store with active user base<br/>
-                    <strong style="color: #fed136;">🚀</strong> Led end-to-end product development from design to production deployment<br/>
-                    <strong style="color: #fed136;">⚡</strong> Optimized system performance, reducing latency by <strong>40%+</strong> in critical paths<br/>
+                    <strong style="color: #fed136;">🤖</strong> Built an <strong>enterprise MCP server</strong> letting AI agents act on governed production fraud data — adopted by <strong>6 teams</strong><br/>
+                    <strong style="color: #fed136;">🚀</strong> Agentic remediation framework closed <strong>130 of 130</strong> security findings; <strong>19 patterns</strong> now standard across <strong>40+ repositories</strong><br/>
+                    <strong style="color: #fed136;">⚡</strong> Cut rule lookup from <strong>8 minutes to 12 seconds</strong> across 800+ active rules, and SLA-miss detection from <strong>3 weeks to under a day</strong><br/>
                     <strong style="color: #fed136;">🤝</strong> Mentored junior engineers and established best practices across teams<br/>
                     <strong style="color: #fed136;">🔒</strong> Built secure, scalable platforms serving <strong>major financial institutions</strong> globally<br/>
                 </p>
@@ -244,32 +243,79 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Featured Projects</h2>
-                <h3 class="section-subheading text-muted" style="font-style: italic; margin-bottom: 50px;">Building solutions that make a difference</h3>
+                <h3 class="section-subheading text-muted" style="font-style: italic; margin-bottom: 50px;">Platform, observability and agentic AI at Visa</h3>
                 <div class="spacer"></div>
             </div>
         </div>
-        <div class="row">
+        <div class="row portfolio-row">
             <div class="col-md-3 col-sm-6 portfolio-item">
-                <a href="https://github.com/mohdzeeshanshaikh/CMPE273-AWS-Project" target="_blank" rel="noopener noreferrer"
-                   class="portfolio-link" data-toggle="modal" aria-label="View Amazon EC2 Monitoring Project">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-github fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/projects/aws-monitoring.webp" class="img-responsive" alt="Amazon EC2 Instance Monitoring dashboard showing real-time cloud infrastructure metrics, CPU, memory, network, and disk statistics" loading="lazy" width="400" height="300">
-                </a>
+                <div class="work-visual" aria-hidden="true">
+                    <i class="fa fa-plug"></i>
+                </div>
                 <div class="portfolio-caption">
-                    <h4>Amazon EC2 Instance Monitoring</h4>
-                    <p class="text-muted text-justify">Real-time cloud infrastructure monitoring dashboard with automated alerting. Tracks CPU, memory, network, and disk metrics across EC2 instances, sending notifications during high-load scenarios.</p>
+                    <h4>Enterprise MCP Server</h4>
+                    <p class="text-muted text-justify">A Model Context Protocol server exposing rule, KPI and reporting data as permission-scoped tools, letting AI agents act on governed production fraud data inside enterprise guardrails. Adopted by 6 teams.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">High Charts</span>
-                        <span class="tech-tag">Twilio</span>
+                        <span class="tech-tag">MCP</span>
+                        <span class="tech-tag">Agentic AI</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spring Boot</span>
                     </div>
                 </div>
             </div>
+            <div class="col-md-3 col-sm-6 portfolio-item">
+                <div class="work-visual" aria-hidden="true">
+                    <i class="fa fa-shield"></i>
+                </div>
+                <div class="portfolio-caption">
+                    <h4>Agentic AI Security Remediation</h4>
+                    <p class="text-muted text-justify">A remediation framework built on compounding-engineering principles. Closed 130 of 130 security findings and cut per-finding remediation from a day to 45 minutes, producing 19 patterns and 5 workflows now standard across 40+ repositories.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Agentic AI</span>
+                        <span class="tech-tag">SAST</span>
+                        <span class="tech-tag">DevSecOps</span>
+                        <span class="tech-tag">OWASP</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 portfolio-item">
+                <div class="work-visual" aria-hidden="true">
+                    <i class="fa fa-line-chart"></i>
+                </div>
+                <div class="portfolio-caption">
+                    <h4>SLA Observability Platform</h4>
+                    <p class="text-muted text-justify">Observability across 8.34M+ monthly requests on production endpoints, cutting SLA-miss detection from three weeks to under a day and avoiding roughly $400K a year in contractual SLA credits.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Prometheus</span>
+                        <span class="tech-tag">Splunk</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">StarRocks</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 portfolio-item">
+                <div class="work-visual" aria-hidden="true">
+                    <i class="fa fa-sitemap"></i>
+                </div>
+                <div class="portfolio-caption">
+                    <h4>React Micro-Frontend Migration</h4>
+                    <p class="text-muted text-justify">Migrated 85+ Angular pages to React and TypeScript micro-frontends on Module Federation with zero production incidents, improving feature lead time by 35% while preserving years of embedded fraud business logic.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Module Federation</span>
+                        <span class="tech-tag">Micro-Frontends</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="earlier-heading">Earlier Projects</h3>
+                <h4 class="earlier-subheading text-muted">Open-source and academic work, 2015&ndash;2016</h4>
+            </div>
+        </div>
+        <div class="row portfolio-row">
             <div class="col-md-3 col-sm-6 portfolio-item">
                 <a href="https://github.com/santanusetu/Android" target="_blank" rel="noopener noreferrer"
                    class="portfolio-link" data-toggle="modal" aria-label="View iShare Project">
@@ -313,28 +359,26 @@
                 </div>
             </div>
             <div class="col-md-3 col-sm-6 portfolio-item">
-                <a href="https://github.com/santanusetu/Appium-AppAutomation" target="_blank" rel="noopener noreferrer"
-                   class="portfolio-link" data-toggle="modal" aria-label="View Mobile Testing Project">
+                <a href="https://github.com/mohdzeeshanshaikh/CMPE273-AWS-Project" target="_blank" rel="noopener noreferrer"
+                   class="portfolio-link" data-toggle="modal" aria-label="View Amazon EC2 Monitoring Project">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-github fa-3x"></i>
                         </div>
                     </div>
-                    <img src="img/projects/appium.webp" class="img-responsive" alt="Mobile application testing automation framework screenshot showing cross-platform test coverage for Android and iOS" loading="lazy" width="400" height="300">
+                    <img src="img/projects/aws-monitoring.webp" class="img-responsive" alt="Amazon EC2 Instance Monitoring dashboard showing real-time cloud infrastructure metrics, CPU, memory, network, and disk statistics" loading="lazy" width="400" height="300">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Mobile Application Testing</h4>
-                    <p class="text-muted text-justify">Comprehensive test automation framework for cross-platform mobile applications. Implemented end-to-end testing strategies covering Android and iOS platforms with robust test coverage.</p>
+                    <h4>Amazon EC2 Instance Monitoring</h4>
+                    <p class="text-muted text-justify">Real-time cloud infrastructure monitoring dashboard with automated alerting. Tracks CPU, memory, network, and disk metrics across EC2 instances, sending notifications during high-load scenarios.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Appium</span>
-                        <span class="tech-tag">Selenium</span>
-                        <span class="tech-tag">TestNG</span>
-                        <span class="tech-tag">iOS</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">High Charts</span>
+                        <span class="tech-tag">Twilio</span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-3 col-sm-6 portfolio-item">
                 <a href="https://github.com/santanusetu" target="_blank" rel="noopener noreferrer"
                    class="portfolio-link" data-toggle="modal" aria-label="View VM Disaster Recovery Project">
@@ -353,67 +397,6 @@
                         <span class="tech-tag">VMware ESXi</span>
                         <span class="tech-tag">vSphere</span>
                         <span class="tech-tag">Java</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 portfolio-item">
-                <a href="https://github.com/santanusetu/" target="_blank" rel="noopener noreferrer"
-                   class="portfolio-link" data-toggle="modal" aria-label="View Project">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-github fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/projects/short.webp" class="img-responsive" alt="Shortest Time to Destination emergency routing system showing optimal paths to healthcare facilities with real-time traffic data" loading="lazy" width="400" height="300">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Shortest Time to Destination</h4>
-                    <p class="text-muted text-justify">Emergency routing system that calculates optimal paths to healthcare facilities using real-time traffic data. Designed to assist in critical medical situations with accurate ETA predictions.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Google Maps API</span>
-                        <span class="tech-tag">Bootstrap</span>
-                        <span class="tech-tag">REST</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 portfolio-item">
-                <a href="https://github.com/santanusetu/myWebsite" target="_blank" rel="noopener noreferrer"
-                   class="portfolio-link" data-toggle="modal" aria-label="View Web Development Project">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-github fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/projects/frontend.webp" class="img-responsive" alt="Front-end web development portfolio website with responsive design, modern UI, and smooth animations" loading="lazy" width="400" height="300">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Front End Web Development</h4>
-                    <p class="text-muted text-justify">Responsive portfolio website with modern design principles. Fully optimized for all devices with smooth animations and interactive elements.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Bootstrap</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 portfolio-item">
-                <a href="https://github.com/santanusetu/" target="_blank" rel="noopener noreferrer"
-                   class="portfolio-link" data-toggle="modal" aria-label="View Project">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-github fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="img/projects/github.webp" class="img-responsive" alt="GitHub repository showcasing additional open-source projects and code contributions across multiple domains" loading="lazy" width="400" height="300">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Additional Projects</h4>
-                    <p class="text-muted text-justify">Various open-source contributions and side projects spanning multiple domains. Explore my GitHub for more innovative solutions and code samples.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Open Source</span>
-                        <span class="tech-tag">Various</span>
                     </div>
                 </div>
             </div>

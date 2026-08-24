@@ -454,3 +454,59 @@ section {
 .form-group.has-success .help-block {
     color: #28a745;
 }
+
+/* Work tiles — cards for professional work that has no public repository.
+   Deliberately not links: no <a>, no hover overlay, cursor stays default,
+   so the card never signals a click that would go nowhere. */
+#portfolio .work-visual {
+    flex-shrink: 0;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+}
+
+#portfolio .work-visual i {
+    font-size: 54px;
+    color: #fed136;
+    transition: transform 0.3s ease;
+}
+
+#portfolio .portfolio-item:hover .work-visual i {
+    transform: scale(1.12);
+}
+
+/* Divider between current work and earlier projects */
+#portfolio .earlier-heading {
+    margin-top: 50px;
+    margin-bottom: 6px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #222;
+}
+
+#portfolio .earlier-subheading {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-style: italic;
+    text-transform: none;
+}
+
+/* Equal-height cards. Bootstrap 3 floats leave the columns at content height,
+   so a longer description made one card taller than its neighbours. */
+#portfolio .portfolio-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* .portfolio-item sets height:100%, which resolves to auto against a flex
+   container of auto height and so defeats align-items:stretch. Clear it. */
+#portfolio .portfolio-row > .portfolio-item {
+    height: auto;
+}
