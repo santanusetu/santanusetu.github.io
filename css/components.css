@@ -510,3 +510,84 @@ section {
 #portfolio .portfolio-row > .portfolio-item {
     height: auto;
 }
+
+/* Skip link — first thing a keyboard user reaches, hidden until focused. */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 12px;
+    z-index: 2000;
+    padding: 12px 20px;
+    background: #fed136;
+    color: #1a252f;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    color: #1a252f;
+    text-decoration: none;
+    outline: 3px solid #1a252f;
+    outline-offset: 2px;
+}
+
+/* Respect the OS "reduce motion" setting: the page uses smooth scroll plus
+   hover scale/rotate transforms, which is exactly what that setting is for. */
+@media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    #portfolio .portfolio-item:hover,
+    #portfolio .portfolio-item:hover .portfolio-link img,
+    #portfolio .portfolio-item:hover .work-visual i,
+    #portfolio .portfolio-item:hover .portfolio-hover-content i,
+    .tech-tag:hover {
+        transform: none !important;
+    }
+}
+
+/* Printing: drop the dark hero, the fixed nav and the contact form. */
+@media print {
+    header,
+    nav.navbar,
+    .skip-link,
+    #contact form,
+    footer .social-buttons {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 11pt;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        word-break: break-all;
+    }
+
+    section {
+        page-break-inside: avoid;
+        background: #fff !important;
+    }
+}
