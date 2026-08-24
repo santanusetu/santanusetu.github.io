@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santanusetu.github.io/sitemap.xml
