@@ -717,3 +717,94 @@ section {
 @media (max-width:880px){
     .about-row .col-md-6+.col-md-6{margin-top:36px}
 }
+
+/* ── Hero: scrim + the claim line ─────────────────────────────────── */
+/* The portrait sits right of centre, so the headline used to run across the
+   face. A left-weighted scrim darkens the type's ground without touching the
+   image or hiding the subject. */
+header{position:relative}
+header::before{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(100deg,
+        rgba(0,0,0,.72) 0%,
+        rgba(0,0,0,.58) 42%,
+        rgba(0,0,0,.20) 68%,
+        rgba(0,0,0,.05) 100%);
+    pointer-events:none;
+}
+header .intro-text{position:relative;z-index:1}
+
+.intro-claim{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.82);
+    margin:-8px 0 30px;
+    text-shadow:0 1px 10px rgba(0,0,0,.6);
+}
+
+/* ── Ledger reveal ───────────────────────────────────────────────── */
+/* Hidden only once the script confirms it can animate, so no-JS and
+   reduced-motion visitors never see a blank section. */
+.ledger-armed .ledger-row > *{
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .5s ease,transform .5s ease;
+}
+/* The rule is a scaled pseudo-element, not an animated background-size:
+   interpolating background-size from a length to a percentage does not draw
+   reliably. transform:scaleX is also cheaper to composite. */
+.ledger-armed .ledger-row{border-top-color:transparent;position:relative}
+.ledger-armed .ledger-row::before{
+    content:"";
+    position:absolute;top:-1px;left:0;right:0;height:1px;
+    background:var(--hairline);
+    transform:scaleX(0);transform-origin:left center;
+    transition:transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.ledger-armed .ledger-row.is-revealed::before{transform:scaleX(1)}
+.ledger-armed .ledger-row.is-revealed > *{opacity:1;transform:none}
+.ledger-armed .ledger-row.is-revealed > *:nth-child(2){transition-delay:.10s}
+
+@media (max-width:880px){
+    .intro-claim{font-size:11px;letter-spacing:.12em;margin:-4px 0 26px}
+    header::before{background:linear-gradient(180deg,
+        rgba(0,0,0,.55) 0%,rgba(0,0,0,.70) 60%,rgba(0,0,0,.78) 100%)}
+}
+@media (prefers-reduced-motion:reduce){
+    .ledger-armed .ledger-row > *{opacity:1;transform:none;transition:none}
+    .ledger-armed .ledger-row{border-top-color:var(--hairline)}
+    .ledger-armed .ledger-row::before{transform:scaleX(1);transition:none}
+}
+
+/* ── Timeline as a record ────────────────────────────────────────── */
+/* Chronology is the information here, so the date takes the left rail —
+   the same structure the ledger uses for its figures. */
+.record{margin-top:6px}
+.record-row{
+    display:grid;grid-template-columns:190px minmax(0,1fr);gap:40px;
+    padding:26px 0;border-top:1px solid var(--hairline);
+}
+.record-row:last-child{border-bottom:1px solid var(--hairline)}
+.record-when{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+    color:var(--ink-muted);text-align:right;margin:0;
+}
+.record-body h3{
+    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight:700;font-size:19px;color:var(--ink-strong);
+    margin:0 0 3px;text-transform:none;line-height:1.25;
+}
+.record-where{
+    font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+    color:var(--ink-muted);margin:0 0 10px !important;
+}
+.record-body p:last-child{
+    margin:0;max-width:62ch;color:var(--ink-body);font-size:15px;line-height:1.7;
+}
+@media (max-width:880px){
+    .record-row{grid-template-columns:1fr;gap:10px}
+    .record-when{text-align:left}
+}
