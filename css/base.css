@@ -165,12 +165,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-default .navbar-nav > .active > a {
     border-radius: 0;
-    color: #fff;
+    /* white on #fed136 is 1.46:1. #222 on the same gold is 10.9:1. */
+    color: #222;
     background-color: #fed136
 }
 
 .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #fff;
+    color: #222;
     background-color: #fec503
 }
 
@@ -238,7 +239,12 @@ header .intro-text .intro-heading {
     font-weight: 700;
     font-size: 50px;
     line-height: 50px;
-    margin-bottom: 25px
+    margin-bottom: 25px;
+    /* h1 matches the global "h1,h2,... { color:#222 }" rule directly, which beats
+       the white inherited from header. Without this the headline is near-black
+       on a near-black hero. */
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, .55)
 }
 
 @media (min-width: 768px) {
