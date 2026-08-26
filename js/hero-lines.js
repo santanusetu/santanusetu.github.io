@@ -21,23 +21,23 @@
 
     // [headline, sub-line]
     var PAIRS = [
-        ['The rollback plan is to not be wrong.',
-         'no canary · no rollback · 100% of live traffic'],
+        ['\u201CTrust, but verify.\u201D',
+         'Ronald Reagan \u00b7 also, more or less, the job description'],
 
-        ['There is no staging. There is production.',
-         '800+ active rules · 8.34M requests a month · one environment'],
+        ['\u201CEveryone has a plan until they get punched in the mouth.\u201D',
+         'Mike Tyson \u00b7 which is roughly how fraud arrives'],
 
-        ['I’ve never used a canary deploy. I hear they’re nice.',
-         'real-time fraud decisioning · sub-100ms · ships to everyone at once'],
+        ['\u201CIn God we trust. All others must bring data.\u201D',
+         'W. Edwards Deming \u00b7 8.34 million requests a month, all bringing data'],
 
-        ['I write the code that decides if your card works.',
-         'inline on the card authorization path · sub-100ms'],
+        ['\u201CPremature optimization is the root of all evil.\u201D',
+         'Donald Knuth \u00b7 though under 100ms it stops being premature'],
 
-        ['Fraud never sleeps. I do, occasionally.',
-         'real-time fraud decisioning · 8.34 million requests a month'],
+        ['\u201CAny sufficiently advanced technology is indistinguishable from magic.\u201D',
+         'Arthur C. Clarke \u00b7 a decision in under a tenth of a second is close enough'],
 
-        ['Good observability means nobody thanks you.',
-         'SLA-miss detection: three weeks → under a day']
+        ['\u201CTalk is cheap. Show me the code.\u201D',
+         'Linus Torvalds \u00b7 fair. The projects are below']
     ];
 
     var reduced = window.matchMedia &&
