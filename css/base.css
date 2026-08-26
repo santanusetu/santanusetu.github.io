@@ -40,7 +40,7 @@ a:hover, a:focus, a:active, a.active {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #27374D
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     background-color: #3FC1C9;
     border-color: #3FC1C9;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700
 }
@@ -91,7 +91,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     background-color: #3FC1C9;
     border-color: #3FC1C9;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     border-radius: 3px;
@@ -126,7 +126,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-default .navbar-brand {
     color: #3FC1C9;
-    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive
+    /* The ledger's captions are already set in this face; putting the wordmark
+       in it too ties the identity to the one thing on the page that is his. */
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: .01em;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:active, .navbar-default .navbar-brand.active {
@@ -151,7 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-default .nav li a {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 1px;
@@ -186,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .navbar-default .navbar-brand {
-        font-size: 2em;
+        font-size: 19px;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s
@@ -226,7 +231,7 @@ header .intro-text {
 
 header .intro-text .intro-lead-in {
     color: #3FC1C9;
-    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-size: 22px;
     line-height: 22px;
@@ -234,7 +239,7 @@ header .intro-text .intro-lead-in {
 }
 
 header .intro-text .intro-heading {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 50px;
@@ -254,7 +259,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-lead-in {
-        font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-style: italic;
         font-size: 25px;
         line-height: 25px;
@@ -262,7 +267,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-heading {
-        font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 700;
         font-size: 40px;
         line-height: 40px;
@@ -283,7 +288,7 @@ section h2.section-heading {
 
 section h3.section-subheading {
     font-size: 16px;
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: none;
     font-style: italic;
     font-weight: 400;
@@ -362,7 +367,7 @@ section h3.section-subheading {
 }
 
 #portfolio .portfolio-item .portfolio-caption p {
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-size: 10px;
     margin: 0
@@ -666,28 +671,28 @@ section#contact .form-control:focus {
 }
 
 section#contact ::-webkit-input-placeholder {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #999
 }
 
 section#contact :-moz-placeholder {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #999
 }
 
 section#contact ::-moz-placeholder {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #999
 }
 
 section#contact :-ms-input-placeholder {
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     color: #999
@@ -704,7 +709,7 @@ footer {
 
 footer span.copyright {
     line-height: 40px;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     text-transform: none;
     color: #555
@@ -713,7 +718,7 @@ footer span.copyright {
 footer ul.quicklinks {
     margin-bottom: 0;
     line-height: 40px;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     text-transform: none
 }
@@ -767,7 +772,7 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 
 .portfolio-modal .modal-content p.item-intro {
     margin: 20px 0 30px;
-    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: italic;
     font-size: 16px
 }
