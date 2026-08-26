@@ -24,15 +24,20 @@
     // Only arm the animation once we know we can finish it.
     document.documentElement.classList.add('ledger-armed');
 
+    function reveal(row, delay) {
+        if (row.classList.contains('is-revealed')) return;
+        if (delay) {
+            setTimeout(function () { row.classList.add('is-revealed'); }, delay);
+        } else {
+            row.classList.add('is-revealed');
+        }
+        observer.unobserve(row);
+    }
+
     var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
-            var row = entry.target;
-            var delay = parseInt(row.dataset.revealDelay || '0', 10);
-            setTimeout(function () {
-                row.classList.add('is-revealed');
-            }, delay);
-            observer.unobserve(row);
+            reveal(entry.target, parseInt(entry.target.dataset.revealDelay || '0', 10));
         });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
 
@@ -42,16 +47,33 @@
         observer.observe(row);
     });
 
-    // Safety net. If the observer never fires — a browser quirk, a throttled
-    // background tab, anything — rows the visitor can already see would sit
-    // blank. After a few seconds, reveal anything at or above the fold
-    // regardless. A missed animation is nothing; a blank section is fatal.
-    setTimeout(function () {
+    // Catch-up pass: reveal anything the visitor can actually see, now, with no
+    // stagger. The observer's threshold and its -12% bottom margin leave a band
+    // where a row is on screen but does not qualify — and because a row is only
+    // unobserved once it reveals, a page that then sits still is never
+    // re-evaluated. That is the anchor-jump case: click PROJECTS or EDUCATION,
+    // land mid-section, and the rows stay blank until something happens to
+    // scroll. A missed animation is nothing; an empty section is fatal.
+    function revealVisible() {
         Array.prototype.forEach.call(rows, function (row) {
             if (row.classList.contains('is-revealed')) return;
-            if (row.getBoundingClientRect().top < window.innerHeight) {
-                row.classList.add('is-revealed');
-            }
+            var box = row.getBoundingClientRect();
+            if (box.top < window.innerHeight && box.bottom > 0) reveal(row, 0);
         });
-    }, 3000);
+    }
+
+    // Every way the viewport can change without the observer settling it.
+    window.addEventListener('hashchange', function () {
+        // Let the browser finish the jump before measuring.
+        setTimeout(revealVisible, 60);
+    });
+    window.addEventListener('resize', revealVisible);
+    window.addEventListener('load', revealVisible);
+
+    // A deep link lands mid-page before this script runs.
+    if (window.location.hash) setTimeout(revealVisible, 120);
+
+    // Final backstop, unchanged in spirit: if anything above went wrong, the
+    // fold is legible a few seconds in regardless.
+    setTimeout(revealVisible, 3000);
 })();
