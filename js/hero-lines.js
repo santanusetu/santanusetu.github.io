@@ -20,25 +20,33 @@
     if (!head || !claim) return;
 
     // [headline, sub-line]
+    // [headline, attribution, the dry half]
+    // The aside is set apart in gold so a reader can tell which half is the
+    // famous person and which half is him.
     var PAIRS = [
-        ['\u201CTrust, but verify.\u201D',
-         'Ronald Reagan \u00b7 also, more or less, the job description'],
+        ['\u201CTrust, but verify.\u201D', 'Ronald Reagan',
+         'also, more or less, the job description'],
 
-        ['\u201CEveryone has a plan until they get punched in the mouth.\u201D',
-         'Mike Tyson \u00b7 which is roughly how fraud arrives'],
+        ['\u201CEveryone has a plan until they get punched in the mouth.\u201D', 'Mike Tyson',
+         'which is roughly how fraud arrives'],
 
-        ['\u201CIn God we trust. All others must bring data.\u201D',
-         'W. Edwards Deming \u00b7 8.34 million requests a month, all bringing data'],
+        ['\u201CIn God we trust. All others must bring data.\u201D', 'W. Edwards Deming',
+         '8.34 million requests a month, all bringing data'],
 
-        ['\u201CPremature optimization is the root of all evil.\u201D',
-         'Donald Knuth \u00b7 though under 100ms it stops being premature'],
+        ['\u201CPremature optimization is the root of all evil.\u201D', 'Donald Knuth',
+         'though under 100ms it stops being premature'],
 
-        ['\u201CAny sufficiently advanced technology is indistinguishable from magic.\u201D',
-         'Arthur C. Clarke \u00b7 a decision in under a tenth of a second is close enough'],
+        ['\u201CAny sufficiently advanced technology is indistinguishable from magic.\u201D', 'Arthur C. Clarke',
+         'a decision in under a tenth of a second is close enough'],
 
-        ['\u201CTalk is cheap. Show me the code.\u201D',
-         'Linus Torvalds \u00b7 fair. The projects are below']
+        ['\u201CTalk is cheap. Show me the code.\u201D', 'Linus Torvalds',
+         'fair. The projects are below']
     ];
+
+    function claimHTML(p) {
+        return '<span class="q-attr">' + p[1] + '</span> ' +
+               '<span class="q-aside">' + p[2] + '</span>';
+    }
 
     var reduced = window.matchMedia &&
                   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -48,16 +56,16 @@
     // numbers come out short and every swap jumps the page.
     function reserve() {
         var h = 0, c = 0;
-        var hText = head.textContent, cText = claim.textContent;
+        var hText = head.textContent, cHTML = claim.innerHTML;
         head.style.minHeight = claim.style.minHeight = '';
         PAIRS.forEach(function (p) {
             head.textContent = p[0];
-            claim.textContent = p[1];
+            claim.innerHTML = claimHTML(p);
             h = Math.max(h, head.offsetHeight);
             c = Math.max(c, claim.offsetHeight);
         });
         head.textContent = hText;
-        claim.textContent = cText;
+        claim.innerHTML = cHTML;
         head.style.minHeight = h + 'px';
         claim.style.minHeight = c + 'px';
     }
@@ -84,7 +92,7 @@
         setTimeout(function () {
             i = (i + 1) % PAIRS.length;
             head.textContent = PAIRS[i][0];
-            claim.textContent = PAIRS[i][1];
+            claim.innerHTML = claimHTML(PAIRS[i]);
             head.style.opacity = claim.style.opacity = '1';
         }, FADE);
     }

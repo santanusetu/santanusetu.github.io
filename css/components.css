@@ -847,3 +847,16 @@ header .intro-text{position:relative;z-index:1}
 @media (max-width:880px){
     .quote-grid{grid-template-columns:1fr;gap:30px}
 }
+
+/* ── Hero sub-line: two voices ──────────────────────────────────────
+   The attribution is the famous person; the aside is his. Setting the
+   second half in warm gold against the cyan above it marks the join, so
+   the deadpan reads as a deadpan rather than as part of the citation.
+   Gold is the only warm note on the page, which is what makes it work —
+   it appears exactly where somebody is being dry. Measured on the hero
+   scrim: 11.18:1 on the dark area, 9.06:1 over the brightest patch of
+   the photograph.
+   ─────────────────────────────────────────────────────────────────── */
+.q-attr{ color:rgba(255,255,255,.82); }
+.q-aside{ color:#E8C07A; }
+.q-aside::before{ content:"· "; color:rgba(255,255,255,.45); }
