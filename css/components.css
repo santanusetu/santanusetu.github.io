@@ -26,7 +26,7 @@
 .btn.btn-default:hover, .btn.btn-default:active {
     background: #fff;
     border-color: #fff;
-    color: #222;
+    color: #27374D;
 }
 
 .btn-info {
@@ -36,7 +36,7 @@
 .btn-info:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(254, 209, 54, 0.3);
-    color: #fed136;
+    color: #3FC1C9;
 }
 
 /* ==========================================================================
@@ -85,9 +85,9 @@
 }
 
 .btn.btn-clear:hover, .btn.btn-clear.selected {
-    background: #fed136;
+    background: #3FC1C9;
     transform: scale(1.1) rotate(360deg);
-    border-color: #fed136;
+    border-color: #3FC1C9;
 }
 
 .btn-twitter:hover {
@@ -122,7 +122,7 @@
    Utility Classes
    ========================================================================== */
 .spacer {
-    background: #fed136;
+    background: #3FC1C9;
     width: 200px;
     height: 3px;
     margin: auto;
@@ -150,7 +150,7 @@ a, button, .btn {
 }
 
 a:focus, button:focus, .btn:focus {
-    outline: 2px solid #fed136;
+    outline: 2px solid #3FC1C9;
     outline-offset: 2px;
 }
 
@@ -189,7 +189,7 @@ section {
     height: 2px;
     bottom: 0;
     left: 50%;
-    background-color: #fed136;
+    background-color: #3FC1C9;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -214,7 +214,7 @@ section {
     margin-bottom: 20px;
     font-size: 20px;
     transition: color 0.3s ease;
-    color: #222;
+    color: #27374D;
 }
 
 #aboutMe .fa-stack {
@@ -223,7 +223,7 @@ section {
 }
 
 #aboutMe .fa-stack-2x.text-primary {
-    color: #fed136 !important;
+    color: #3FC1C9 !important;
 }
 
 #aboutMe .col-md-4 {
@@ -294,7 +294,7 @@ section {
 #portfolio .portfolio-item:hover {
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
     transform: translateY(-8px);
-    border-color: #fed136;
+    border-color: #3FC1C9;
 }
 
 #portfolio .portfolio-link {
@@ -303,7 +303,7 @@ section {
     overflow: hidden;
     display: block;
     position: relative;
-    background-color: #f8f9fa;
+    background-color: #DDE6ED;
 }
 
 #portfolio .portfolio-link img {
@@ -346,14 +346,14 @@ section {
 #portfolio .portfolio-caption h4 {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #222;
+    color: #27374D;
     transition: color 0.3s ease;
     min-height: 50px;
     text-transform: none;
 }
 
 #portfolio .portfolio-item:hover .portfolio-caption h4 {
-    color: #fed136;
+    color: #3FC1C9;
 }
 
 #portfolio .portfolio-caption p {
@@ -380,8 +380,8 @@ section {
 .tech-tag {
     display: inline-block;
     padding: 4px 12px;
-    background-color: #f8f9fa;
-    color: #222;
+    background-color: #DDE6ED;
+    color: #27374D;
     border: 1px solid #e0e0e0;
     border-radius: 15px;
     font-size: 11px;
@@ -392,9 +392,9 @@ section {
 }
 
 .tech-tag:hover {
-    background-color: #fed136;
+    background-color: #3FC1C9;
     color: #fff;
-    border-color: #fed136;
+    border-color: #3FC1C9;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(254, 209, 54, 0.3);
 }
@@ -419,13 +419,13 @@ section {
 }
 
 .form-control {
-    color: #222;
+    color: #27374D;
     background-color: #fff;
     border: 1px solid #ddd;
 }
 
 .form-control:focus {
-    border-color: #fed136;
+    border-color: #3FC1C9;
     box-shadow: 0 0 0 0.2rem rgba(254, 209, 54, 0.25);
     outline: none;
 }
@@ -470,7 +470,7 @@ section {
 
 #portfolio .work-visual i {
     font-size: 54px;
-    color: #fed136;
+    color: #3FC1C9;
     transition: transform 0.3s ease;
 }
 
@@ -487,7 +487,7 @@ section {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #222;
+    color: #27374D;
 }
 
 #portfolio .earlier-subheading {
@@ -518,7 +518,7 @@ section {
     left: 12px;
     z-index: 2000;
     padding: 12px 20px;
-    background: #fed136;
+    background: #3FC1C9;
     color: #1a252f;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
@@ -595,12 +595,12 @@ section {
 /* ═══════════════════════════════════════════════════════════════════
    Work ledger, Recognition and Education
    Structures ported from the Aug-24 design pass, restyled to the site's
-   own palette. #fed136 is unreadable as small text on white (1.46:1), so
+   own palette. #3FC1C9 is unreadable as small text on white (1.46:1), so
    light grounds use --gold-deep: the same 46° hue darkened to 4.71:1.
    ═══════════════════════════════════════════════════════════════════ */
 :root{
-    --gold-deep:#8a711d;
-    --ink-strong:#222;
+    --gold-deep:#0F4C75;
+    --ink-strong:#27374D;
     --ink-body:#444;
     --ink-muted:#6d7278;
     --hairline:#dcdcd8;
@@ -693,23 +693,23 @@ section {
 .about-row p{font-size:15.5px;line-height:1.75;color:var(--ink-body)}
 .stack-list{line-height:2 !important}
 .stack-label{
-    /* #fed136 is 1.46:1 on white. Same 46 deg hue darkened to 4.71:1. */
+    /* #3FC1C9 is 1.46:1 on white. Same 46 deg hue darkened to 4.71:1. */
     color:var(--gold-deep);font-weight:600;
 }
 
 /* ── Résumé button: on-palette, replaces Bootstrap's .btn-info cyan ── */
 .btn-resume{
-    background-color:#fed136;
-    border-color:#fed136;
-    color:#222;
+    background-color:#3FC1C9;
+    border-color:#3FC1C9;
+    color:#27374D;
     font-weight:700;
     letter-spacing:.04em;
     transition:all .3s ease;
 }
 .btn-resume:hover,.btn-resume:focus,.btn-resume:active{
-    background-color:#fec503;
-    border-color:#fec503;
-    color:#222;
+    background-color:#35A9B0;
+    border-color:#35A9B0;
+    color:#27374D;
     transform:translateY(-2px);
     box-shadow:0 5px 15px rgba(254,209,54,.35);
 }
@@ -808,3 +808,19 @@ header .intro-text{position:relative;z-index:1}
     .record-row{grid-template-columns:1fr;gap:10px}
     .record-when{text-align:left}
 }
+
+/* ── Navy slate palette layer ───────────────────────────────────────
+   Chrome #27374D, ground #DDE6ED, accent #3FC1C9 on dark and #0F4C75
+   on light. Hairlines and the ledger's unit-labels get their own tones
+   from the same ramp so the neutrals read as chosen, not inherited.
+   Every pair measured: accent-on-chrome 5.57:1, deep-on-ground 7.19:1,
+   unit-labels 5.23:1, ground-text-on-chrome 9.55:1. All clear AA.
+   ─────────────────────────────────────────────────────────────────── */
+:root{ --hairline:#C3D0DA; --ink-muted:#4A5F73; }
+.ledger-figure .u{ color:#4A5F73; }
+.ledger-stack{ color:#4A5F73; }
+.edu-sub{ color:#4A5F73; }
+.ledger-row{ border-top-color:#C3D0DA; }
+.ledger-row:last-child{ border-bottom-color:#C3D0DA; }
+.recog-grid article{ border-top-color:#C3D0DA; }
+.about-row .service-heading{ border-bottom-color:#27374D; }
