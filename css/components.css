@@ -824,3 +824,26 @@ header .intro-text{position:relative;z-index:1}
 .ledger-row:last-child{ border-bottom-color:#C3D0DA; }
 .recog-grid article{ border-top-color:#C3D0DA; }
 .about-row .service-heading{ border-bottom-color:#27374D; }
+
+/* ── Recommendation quotes ──────────────────────────────────────────
+   Two up, same rhythm as .recog-grid. The rule sits on the left of the
+   quote rather than under a heading: these are somebody else's words,
+   so they should read as set apart from the page's own voice.
+   ─────────────────────────────────────────────────────────────────── */
+.quote-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:44px}
+.quote-grid figure{margin:0;border-left:2px solid var(--hairline);padding-left:22px}
+.quote-grid blockquote{
+    margin:0 0 16px;padding:0;border:0;
+    font-size:16px;line-height:1.7;color:var(--ink-body);
+}
+.quote-grid figcaption{display:block}
+.q-name{
+    display:block;font-weight:700;font-size:14px;color:var(--ink-strong);
+}
+.q-role{
+    display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    color:var(--ink-muted);margin-top:4px;
+}
+@media (max-width:880px){
+    .quote-grid{grid-template-columns:1fr;gap:30px}
+}
