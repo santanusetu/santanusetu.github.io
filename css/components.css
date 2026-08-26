@@ -691,10 +691,40 @@ section {
     padding-bottom:12px;border-bottom:2px solid var(--ink-strong);
 }
 .about-row p{font-size:15.5px;line-height:1.75;color:var(--ink-body)}
-.stack-list{line-height:2 !important}
-.stack-label{
+/* ── Tech stack: label column, value column ─────────────────────────
+   A two-column grid rather than inline labels with <br>. Every value
+   starts at the same x, so a wrapped line lands under the first item in
+   its own row instead of falling back to the margin — the list reads as
+   a table of contents rather than as prose that happens to be bolded.
+   max-content sizes the label column to the longest label, so the values
+   keep as much room as the labels leave them.
+   ─────────────────────────────────────────────────────────────────── */
+.stack-list{
+    display:grid;
+    grid-template-columns:max-content minmax(0,1fr);
+    column-gap:16px;
+    row-gap:11px;
+    margin:0;
+    line-height:1.7;
+}
+.stack-list dt{
     /* #3FC1C9 is 1.46:1 on white. Same 46 deg hue darkened to 4.71:1. */
-    color:var(--gold-deep);font-weight:600;
+    color:var(--gold-deep);
+    font-weight:600;
+    font-size:15px;
+    white-space:nowrap;
+}
+.stack-list dd{
+    margin:0;
+    font-size:15px;
+    color:var(--ink-body);
+}
+
+/* Narrow columns cannot afford a label gutter — stack them instead. */
+@media (max-width:991px){
+    .stack-list{grid-template-columns:1fr;row-gap:4px}
+    .stack-list dt{margin-top:10px}
+    .stack-list dt:first-child{margin-top:0}
 }
 
 /* ── Résumé button: on-palette, replaces Bootstrap's .btn-info cyan ── */
