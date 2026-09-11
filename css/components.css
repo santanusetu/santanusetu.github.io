@@ -765,14 +765,40 @@ header::before{
 }
 header .intro-text{position:relative;z-index:1}
 
+/* The quote box shrinks to the quote so the credit can hang off its right
+   edge. hero-lines.js narrows it to the widest line once the text wraps.
+   A credit longer than a short quote ("Follow the money." on a 320px phone)
+   would wrap inside that box; as a nowrap flex-end row it overflows to the
+   left instead, so its right edge still sits under the quote's. */
+.intro-quote{display:inline-block;vertical-align:top;max-width:100%}
+header .intro-text .intro-heading{margin-bottom:0}
+.intro-by{
+    display:flex;
+    justify-content:flex-end;
+    white-space:nowrap;
+    font-family:Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style:italic;
+    font-size:18px;
+    line-height:1.3;
+    color:rgba(255,255,255,.82);
+    margin:12px 0 0;
+    text-shadow:0 1px 10px rgba(0,0,0,.6);
+}
 .intro-claim{
     font-family:var(--mono);
-    font-size:13px;
+    font-weight:500;
+    font-size:14px;
     letter-spacing:.16em;
     text-transform:uppercase;
-    color:rgba(255,255,255,.82);
-    margin:-8px 0 30px;
+    margin:24px 0 30px;
     text-shadow:0 1px 10px rgba(0,0,0,.6);
+}
+/* base.css sets the phone headline at 50px, larger than desktop's 40px. With
+   quotes of up to 11 words that ran Tyson to 6 lines, and since the rotor
+   reserves the tallest slide, every short quote sat over a hole of roughly
+   300px. Sized to the viewport so INDISTINGUISHABLE still fits at 320px. */
+@media (max-width:767px){
+    header .intro-text .intro-heading{font-size:clamp(22px,7.2vw,34px);line-height:1.12}
 }
 
 /* ── Ledger reveal ───────────────────────────────────────────────── */
@@ -799,7 +825,8 @@ header .intro-text{position:relative;z-index:1}
 .ledger-armed .ledger-row.is-revealed > *:nth-child(2){transition-delay:.10s}
 
 @media (max-width:880px){
-    .intro-claim{font-size:11px;letter-spacing:.12em;margin:-4px 0 26px}
+    .intro-by{font-size:15px;margin-top:8px}
+    .intro-claim{font-size:12px;letter-spacing:.12em;margin:18px 0 26px}
     header::before{background:linear-gradient(180deg,
         rgba(0,0,0,.55) 0%,rgba(0,0,0,.70) 60%,rgba(0,0,0,.78) 100%)}
 }
@@ -878,15 +905,13 @@ header .intro-text{position:relative;z-index:1}
     .quote-grid{grid-template-columns:1fr;gap:30px}
 }
 
-/* ── Hero sub-line: two voices ──────────────────────────────────────
-   The attribution is the famous person; the aside is his. Setting the
-   second half in warm gold against the cyan above it marks the join, so
-   the deadpan reads as a deadpan rather than as part of the citation.
+/* ── Hero remark: the second voice ──────────────────────────────────
+   The credit under the quote is the famous person; the gold line is his.
+   Setting it on its own row in warm gold, against the cyan above, keeps
+   the deadpan reading as a deadpan rather than as part of the citation.
    Gold is the only warm note on the page, which is what makes it work —
    it appears exactly where somebody is being dry. Measured on the hero
    scrim: 11.18:1 on the dark area, 9.06:1 over the brightest patch of
    the photograph.
    ─────────────────────────────────────────────────────────────────── */
-.q-attr{ color:rgba(255,255,255,.82); }
-.q-aside{ color:#E8C07A; }
-.q-aside::before{ content:"· "; color:rgba(255,255,255,.45); }
+.intro-claim{ color:#E8C07A; }

@@ -1,10 +1,10 @@
 /**
  * Rotating hero.
  *
- * Headline and sub-line move together as matched pairs, so a punchline is never
- * left sitting on top of the wrong backing line.
+ * Each slide is a matched set — the quote, who said it, and the dry remark
+ * under it — so a punchline is never left sitting under the wrong quote.
  *
- * The first pair is the one written into index.html. Crawlers, link-preview
+ * The first slide is the one written into index.html. Crawlers, link-preview
  * scrapers and anyone with JS off see that and only that — the rotation is a
  * layer on top, not the source of truth.
  *
@@ -15,59 +15,95 @@
 (function () {
     'use strict';
 
+    var rotor = document.querySelector('.intro-rotor');
+    var quote = document.querySelector('.intro-quote');
     var head = document.querySelector('.intro-heading');
+    var by = document.querySelector('.intro-by');
     var claim = document.querySelector('.intro-claim');
-    if (!head || !claim) return;
+    if (!rotor || !quote || !head || !by || !claim) return;
 
-    // [headline, sub-line]
-    // [headline, attribution, the dry half]
-    // The aside is set apart in gold so a reader can tell which half is the
-    // famous person and which half is him.
-    var PAIRS = [
-        ['\u201CTrust, but verify.\u201D', 'Ronald Reagan',
+    // [quote, who said it, the dry half]
+    // Only quotes a general reader already knows: the joke lands on recognition,
+    // not on explaining who someone is. Film lines credit the character and the
+    // film, so "Jim Lovell, Apollo 13" doesn't read as the astronaut (who said
+    // "we've had a problem"). Every remark points at something true further down
+    // the page.
+    var SLIDES = [
+        ['“Trust, but verify.”', 'Ronald Reagan',
          'also, more or less, the job description'],
 
-        ['\u201CEveryone has a plan until they get punched in the mouth.\u201D', 'Mike Tyson',
+        ['“Do. Or do not. There is no try.”', 'Yoda, The Empire Strikes Back',
+         'approve or decline. There is no maybe'],
+
+        ['“Everyone has a plan until they get punched in the mouth.”', 'Mike Tyson',
          'which is roughly how fraud arrives'],
 
-        ['\u201CIn God we trust. All others must bring data.\u201D', 'W. Edwards Deming',
-         '8.34 million requests a month, all bringing data'],
+        ['“Follow the money.”', 'Deep Throat, All the President’s Men',
+         'a decade at Visa, more or less literally'],
 
-        ['\u201CPremature optimization is the root of all evil.\u201D', 'Donald Knuth',
-         'though under 100ms it stops being premature'],
-
-        ['\u201CAny sufficiently advanced technology is indistinguishable from magic.\u201D', 'Arthur C. Clarke',
+        ['“Any sufficiently advanced technology is indistinguishable from magic.”', 'Arthur C. Clarke',
          'a decision in under a tenth of a second is close enough'],
 
-        ['\u201CTalk is cheap. Show me the code.\u201D', 'Linus Torvalds',
+        ['“I’m sorry, Dave. I’m afraid I can’t do that.”', 'HAL 9000, 2001: A Space Odyssey',
+         'a permission-scoped tool, working as intended'],
+
+        ['“Life, uh, finds a way.”', 'Ian Malcolm, Jurassic Park',
+         'so does fraud'],
+
+        ['“Houston, we have a problem.”', 'Jim Lovell, Apollo 13',
+         'now caught in under a day, not 3 weeks'],
+
+        ['“Move fast and break things.”', 'Mark Zuckerberg',
+         'not advised on the authorization path'],
+
+        ['“Talk is cheap. Show me the code.”', 'Linus Torvalds',
          'fair. The projects are below']
     ];
 
-    function claimHTML(p) {
-        return '<span class="q-attr">' + p[1] + '</span> ' +
-               '<span class="q-aside">' + p[2] + '</span>';
+    var i = 0;
+
+    function show(s) {
+        head.textContent = s[0];
+        by.textContent = '— ' + s[1];
+        claim.textContent = s[2];
+        fit();
+    }
+
+    // Narrow the quote's box to its widest line, so the credit's right edge
+    // lines up with the text rather than the column. inline-block alone only
+    // manages that for a 1-line quote: once the text wraps, the box takes the
+    // full available width.
+    function fit() {
+        quote.style.width = '';
+        var range = document.createRange();
+        range.selectNodeContents(head);
+        var rects = range.getClientRects();
+        var left = Infinity, right = -Infinity;
+        for (var k = 0; k < rects.length; k++) {
+            left = Math.min(left, rects[k].left);
+            right = Math.max(right, rects[k].right);
+        }
+        if (right > left) quote.style.width = Math.ceil(right - left) + 1 + 'px';
     }
 
     var reduced = window.matchMedia &&
                   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Reserve the tallest pair's height so rotation never nudges the layout.
+    // Reserve the tallest slide's height so rotation never nudges the layout.
+    // It is reserved on the whole slide, so the spare space falls under the
+    // remark: reserved on the headline alone, a short quote's credit floated a
+    // line or two below it.
     // Must run after the webfonts land: measured against the fallback face the
     // numbers come out short and every swap jumps the page.
     function reserve() {
-        var h = 0, c = 0;
-        var hText = head.textContent, cHTML = claim.innerHTML;
-        head.style.minHeight = claim.style.minHeight = '';
-        PAIRS.forEach(function (p) {
-            head.textContent = p[0];
-            claim.innerHTML = claimHTML(p);
-            h = Math.max(h, head.offsetHeight);
-            c = Math.max(c, claim.offsetHeight);
+        var tallest = 0;
+        rotor.style.minHeight = '';
+        SLIDES.forEach(function (s) {
+            show(s);
+            tallest = Math.max(tallest, rotor.offsetHeight);
         });
-        head.textContent = hText;
-        claim.innerHTML = cHTML;
-        head.style.minHeight = h + 'px';
-        claim.style.minHeight = c + 'px';
+        show(SLIDES[i]);
+        rotor.style.minHeight = tallest + 'px';
     }
 
     reserve();                                    // something sensible immediately
@@ -76,24 +112,22 @@
     }
     window.addEventListener('resize', reserve);   // and again if the column changes
 
-    if (reduced || PAIRS.length < 2) return;
+    if (reduced || SLIDES.length < 2) return;
 
-    var i = 0, paused = false, timer;
+    var paused = false, timer;
     var INTERVAL = 6000;   // headlines need longer than a one-line sub
     var FADE = 380;
 
-    head.setAttribute('aria-live', 'off');
-    claim.setAttribute('aria-live', 'off');
-    head.style.transition = claim.style.transition = 'opacity ' + FADE + 'ms ease';
+    rotor.setAttribute('aria-live', 'off');
+    rotor.style.transition = 'opacity ' + FADE + 'ms ease';
 
     function next() {
         if (paused) return;
-        head.style.opacity = claim.style.opacity = '0';
+        rotor.style.opacity = '0';
         setTimeout(function () {
-            i = (i + 1) % PAIRS.length;
-            head.textContent = PAIRS[i][0];
-            claim.innerHTML = claimHTML(PAIRS[i]);
-            head.style.opacity = claim.style.opacity = '1';
+            i = (i + 1) % SLIDES.length;
+            show(SLIDES[i]);
+            rotor.style.opacity = '1';
         }, FADE);
     }
 
@@ -102,7 +136,7 @@
     start();
 
     // Pause while someone is reading one.
-    var zone = head.parentNode;
+    var zone = rotor.parentNode;
     ['mouseenter', 'focusin'].forEach(function (e) {
         zone.addEventListener(e, function () { paused = true; });
     });
