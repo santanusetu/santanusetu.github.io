@@ -11,38 +11,45 @@ $(function() {
 
 // Highlight the top nav as scrolling occurs
 $(document).ready(function() {
-    // Manual scroll handler for nav highlighting
+    // The sections are read from the nav itself and sorted into document
+    // order. The hand-written list this replaces had drifted from the markup:
+    // #recognition was missing entirely, so Recognition never lit up, and
+    // #team sat second in a list the loop walks in order — every later entry
+    // overwrote it, so Education never lit up either and Projects stayed
+    // active all the way down to Timeline.
+    var targets = $('.navbar-nav a.page-scroll[href^="#"]').map(function() {
+        var href = this.getAttribute('href');
+        var el = href.length > 1 ? document.querySelector(href) : null;
+        return el ? {href: href, el: el} : null;
+    }).get();
+
+    targets.sort(function(a, b) {
+        return (a.el.compareDocumentPosition(b.el) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1;
+    });
+
     $(window).on('scroll', function() {
         var scrollTop = $(window).scrollTop() + 150; // Offset for fixed navbar
-        
-        // Remove active from all nav items
-        $('.navbar-nav li').removeClass('active');
-        
-        // Check each section
-        var sections = ['#aboutMe', '#team', '#portfolio', '#about', '#contact'];
+
+        // The last section whose top has passed the line is the one being read.
         var current = '';
-        
-        sections.forEach(function(section) {
-            var $section = $(section);
-            if ($section.length) {
-                var sectionTop = $section.offset().top;
-                if (scrollTop >= sectionTop - 50) {
-                    current = section;
-                }
+        targets.forEach(function(t) {
+            if (scrollTop >= $(t.el).offset().top - 50) {
+                current = t.href;
             }
         });
-        
-        // Add active class to current section's nav item
+
+        // Above the first section — the hero — hold the first item, rather
+        // than leaving the whole navbar unlit for most of a tall header.
+        if (!current && targets.length) {
+            current = targets[0].href;
+        }
+
+        $('.navbar-nav li').removeClass('active');
         if (current) {
             $('.navbar-nav a[href="' + current + '"]').parent('li').addClass('active');
-        } else {
-            // If at top, highlight first item or none
-            if ($(window).scrollTop() < 200) {
-                $('.navbar-nav a[href="#aboutMe"]').parent('li').addClass('active');
-            }
         }
     });
-    
+
     // Trigger on page load
     $(window).trigger('scroll');
 });
