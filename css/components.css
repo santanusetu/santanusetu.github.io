@@ -645,7 +645,7 @@ section {
 }
 
 /* ── recognition ─────────────────────────────────────────────────── */
-.recog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.recog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 56px}
 .recog-grid article{border-top:2px solid var(--ink-strong);padding-top:18px}
 .recog-yr{
     display:block;font-family:var(--mono);font-size:11px;
@@ -659,6 +659,7 @@ section {
 }
 .recog-grid p{margin:0;font-size:15px;line-height:1.7;color:var(--ink-body)}
 .recog-grid a{color:var(--gold-deep);text-decoration:underline}
+.recog-grid code{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-strong);background:rgba(39,55,77,.07);padding:1px 5px;border-radius:3px}
 .recog-grid a:hover{color:var(--ink-strong)}
 
 /* ── education ───────────────────────────────────────────────────── */
